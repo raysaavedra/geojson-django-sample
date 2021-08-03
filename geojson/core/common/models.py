@@ -1,0 +1,17 @@
+from django.db import models
+
+
+class TimestampedModel(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+        ordering = ["-created_at", "-updated_at"]
+
+
+class ActiveModel(models.Model):
+    is_active = models.BooleanField(default=False)
+
+    class Meta:
+        abstract = True

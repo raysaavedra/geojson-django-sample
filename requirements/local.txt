@@ -1,0 +1,8 @@
+-r base.txt
+
+pytest==5.3.5
+pytest-cov==2.8.1
+pytest-django==3.10.0
+pytest-flake8==1.0.7
+pytest-pythonpath==0.7.3
+six==1.16.0
