@@ -98,15 +98,23 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# commenting out so we will use sqlite in heroku
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "HOST": env.str("PDB_HOST"),
+#         "NAME": env.str("PDB_NAME"),
+#         "USER": env.str("PDB_USER"),
+#         "PASSWORD": env.str("PDB_PASS"),
+#         "PORT": "5432",
+#         "CONN_MAX_AGE": env.int("PDB_CONN_MAX_AGE", default=0),
+#     }
+# }
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "HOST": env.str("PDB_HOST"),
-        "NAME": env.str("PDB_NAME"),
-        "USER": env.str("PDB_USER"),
-        "PASSWORD": env.str("PDB_PASS"),
-        "PORT": "5432",
-        "CONN_MAX_AGE": env.int("PDB_CONN_MAX_AGE", default=0),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
